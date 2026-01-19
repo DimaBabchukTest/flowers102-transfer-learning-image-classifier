@@ -1,0 +1,26 @@
+[project]
+name = "flowers-classifier"
+version = "0.1.0"
+description = "Flower classification using transfer learning (MobileNetV3 / EfficientNet) with robust evaluation"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+
+  # API / serving
+  "fastapi>=0.104,<0.112",
+  "uvicorn>=0.23,<0.30",
+
+   "numpy>=2.3.5",
+   "scipy>=1.13",
+
+    "pillow>=12.0.0",
+    "tensorflow>=2.20.0",
+    "torch>=2.9.1",
+    "torchsummary>=1.5.1",
+    "torchvision>=0.24.1",
+    
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
