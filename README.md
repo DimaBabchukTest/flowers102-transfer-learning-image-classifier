@@ -629,7 +629,7 @@ docker rmi flowers_classifier_docker
 
 ------------------------------------------------------------------------
 
-## 9. Summary Commands
+## Summary Commands
 
 ### Local (uv)
 
