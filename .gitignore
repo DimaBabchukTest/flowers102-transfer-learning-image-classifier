@@ -24,3 +24,4 @@ data/
 
 # Docker
 *.log
+main.py
