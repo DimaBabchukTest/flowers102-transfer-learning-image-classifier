@@ -667,7 +667,7 @@ To deploy, follow the official instructions for your chosen vendor (typically: c
 
 > Note: Free-tier availability and limits can change over time. Always confirm the provider’s current offerings. 
 
-## Live Deployment (Render)
+### Live Deployment (Render)
 
 This project is deployed using **Docker on Render (free tier)**.
 
