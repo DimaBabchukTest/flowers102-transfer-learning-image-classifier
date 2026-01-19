@@ -323,9 +323,17 @@ The workflow below describes **exactly how to set up the environment, train the 
 
 ---
 
-### Set Up the Python Environment
 
-Synchronize the project dependencies and create a virtual environment:
+## Set Up the Python Environment
+
+### Clone the Project
+
+```bash
+git clone https://github.com/DimaBabchukTest/flowers102-transfer-learning-image-classifier.git
+cd flowers102-transfer-learning-image-classifier
+```
+
+### Synchronize the project dependencies and create a virtual environment:
 
 ```bash
 uv sync
@@ -646,7 +654,7 @@ Stop and remove the container only after testing is complete.
 
 ------------------------------------------------------------------------
 
-## 10. Deployment
+## Deployment
 
 This project can be deployed easily to:
 
