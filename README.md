@@ -667,6 +667,37 @@ To deploy, follow the official instructions for your chosen vendor (typically: c
 
 > Note: Free-tier availability and limits can change over time. Always confirm the provider’s current offerings. 
 
+## Live Deployment (Render)
+
+This project is deployed using **Docker on Render (free tier)**.
+
+An example of the deployed service and prediction flow is shown below.
+
+### Deployed Demo (Render)
+
+**End-to-end inference flow on Render:**
+- Request a random test image
+- Visualize the image
+- Run model prediction and inspect results
+
+![Render Demo](presentation/Demo_Render_Cloud.gif)
+
+---
+
+### Deployment Screenshots
+
+The following screenshots demonstrate the deployed application running on Render:
+
+- **Service status and logs**
+- **Sample image retrieval**
+- **Prediction response**
+
+Screenshots are available in:
+
+```text
+presentation/demo_screen_shots/
+```
+
 ## Use Case Scenarios
 
 ### Mobile Applications (On-Device Inference)
