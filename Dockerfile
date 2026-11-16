@@ -36,7 +36,7 @@ RUN echo "==== AFTER COPY ====" && ls -R /code
 
 ENV PYTHONPATH=/code/src
 
-EXPOSE 8000
+EXPOSE 9100
 
 # 8) Run FastAPI app via fastapi CLI
 # Assuming your app object is in app/main.py
