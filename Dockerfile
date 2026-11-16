@@ -32,14 +32,13 @@ COPY ./src /code/src
 COPY ./artifacts /code/artifacts
 
 # 7) DEBUG: prove they are there at build time
-RUN echo "==== AFTER COPY ====" && ls -R /code
+#RUN echo "==== AFTER COPY ====" && ls -R /code
 
 ENV PYTHONPATH=/code/src
 
 EXPOSE 9100
 
 # 8) Run FastAPI app via fastapi CLI
-# Assuming your app object is in app/main.py
 CMD ["/code/.venv/bin/python3", "-m", "uvicorn", "src.service:app", "--host", "0.0.0.0", "--port", "9100"]
 
 
