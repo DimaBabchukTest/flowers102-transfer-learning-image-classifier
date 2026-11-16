@@ -194,6 +194,7 @@ A robust evaluation methodology was employed:
   - **Overlapping CIs** indicate that observed differences may not be statistically reliable
 - Key metrics (Macro-AUC and Macro-F1) were visualized with **error bars representing 95% CIs**
 - **Limitation:** all models were evaluated on the same test set, so a paired comparison (e.g. paired bootstrap or McNemar's test) would be more powerful than comparing independent confidence intervals. CI overlap is a conservative criterion: non-overlapping intervals indicate a real difference, but overlapping intervals do not prove the models are equivalent.
+  
 ---
 
 ## Final Results & Model Selection
@@ -241,6 +242,8 @@ Based on:
 was selected as the **best-performing and most robust model**.
 
 Remaining generalization gaps are **data-limited**, not technique-limited.
+
+**Methodological note:** the final architecture was chosen using test-set confidence intervals. Strictly, model selection should rely on the validation set, with the test set reserved for final reporting only. With three candidate models and 6,149 test images the resulting bias is likely small, but a stricter protocol would avoid it.
 
 ---
 
