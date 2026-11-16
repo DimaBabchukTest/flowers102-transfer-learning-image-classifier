@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This project implements a **multi-class image classification system** for the Flowers102 dataset using **transfer learning with lightweight convolutional neural networks**. The objective is to evaluate how well modern pre-trained models generalize under **severe data constraints**, while applying **senior-level best practices** in model training, evaluation, and deployment readiness.
+This project implements a **multi-class image classification system** for the Flowers102 dataset using **transfer learning with lightweight convolutional neural networks**. The objective is to evaluate how well modern pre-trained models generalize under **severe data constraints**, with a focus on robust model training, statistically sound evaluation, and deployment readiness.
 
 Three architectures were evaluated: **MobileNetV3-Small**, **MobileNetV3-Large**, and **EfficientNet-B0**. These models were intentionally selected because they combine **strong ImageNet-pretrained representations** with **computational efficiency**, making them suitable for both **server-side inference** and **potential edge/mobile deployment**.
 
@@ -193,7 +193,7 @@ A robust evaluation methodology was employed:
   - **Non-overlapping CIs** suggest statistically meaningful differences
   - **Overlapping CIs** indicate that observed differences may not be statistically reliable
 - Key metrics (Macro-AUC and Macro-F1) were visualized with **error bars representing 95% CIs**
-
+- **Limitation:** all models were evaluated on the same test set, so a paired comparison (e.g. paired bootstrap or McNemar's test) would be more powerful than comparing independent confidence intervals. CI overlap is a conservative criterion: non-overlapping intervals indicate a real difference, but overlapping intervals do not prove the models are equivalent.
 ---
 
 ## Final Results & Model Selection
@@ -261,23 +261,26 @@ The project includes a **FastAPI-based inference service** designed for interact
 
 ## Project Structure
 ```
-Project2/
+flowers102-transfer-learning-image-classifier/
 ├── src/
-│ ├── config.py
-│ ├── data.py
-│ ├── models.py
-│ ├── train.py
-│ ├── infer.py
-│ └── service.py
+│   ├── config.py
+│   ├── data.py
+│   ├── models.py
+│   ├── train.py
+│   ├── infer.py
+│   ├── predict_cli.py
+│   └── service.py
 ├── artifacts/
-│ └── flowers102_run_best.pt
-├── notebooks/
-│ └── Flowers_Project_2.ipynb
-├── pyproject.toml
-└── README.md
+│   └── flowers102_run_best.pt
+├── notebook/
+│   └── Flowers_Project_2.ipynb
+├── presentation/
+│   ├── Demo_Render_Cloud.gif
+│   └── demo_screen_shots/
+├── Dockerfile
 ├── pyproject.toml
 ├── uv.lock
-└── Dockerfile
+└── README.md
 ```
 ## Code Structure & File Responsibilities
 
@@ -447,8 +450,9 @@ Request a prediction for the sampled image using its sample_id:
 ```bash
 curl -X POST http://127.0.0.1:8000/predict_by_id/<sample_id>
 ```
+Example request:
 ```bash
-Randome example request: curl -X POST http://127.0.0.1:8000/predict_by_id/test_ID
+curl -X POST http://127.0.0.1:8000/predict_by_id/test_ID
 ```
 Example response:
 ```json
@@ -572,8 +576,9 @@ Request a prediction for the sampled image using its sample_id:
 ```bash
 curl -X POST http://127.0.0.1:9100/predict_by_id/<sample_id>
 ```
+Example request:
 ```bash
-Randome example request: curl -X POST http://127.0.0.1:9100/predict_by_id/test_ID
+curl -X POST http://127.0.0.1:9100/predict_by_id/test_ID
 ```
 Example response:
 ```json
